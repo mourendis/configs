@@ -1,0 +1,91 @@
+---
+- name: Ensure root folders exist.
+  file:
+    state: directory
+    path: '{{ item }}'
+  loop: '{{ root_required_directories }}'
+  tags:
+    - root
+    - sudo
+    - folder
+
+- name: Ensure user folders exist.
+  file:
+    state: directory
+    path: '{{ item }}'
+    owner: '{{ username }}'
+    group: '{{ usergroup }}'
+  loop: '{{ user_required_directories }}'
+  tags:
+    - user
+    - folder
+
+- name: Ensure packages are installed and up to date.
+  package:
+    name: '{{ item }}'
+    state: latest
+  loop: '{{ packages }}'
+  tags:
+    - sudo
+    - package
+
+- name: Ensure service pacages are installed and up to date.
+  package:
+    name: '{{ item.package }}'
+    state: latest
+  register: services_state
+  loop: '{{ service_packages }}'
+  notify: services
+  tags:
+    - sudo
+    - package
+
+- name: Ensure zsh is default shell.
+  shell: "chsh -s $(which zsh)"
+  when: ansible_user_shell != "/usr/bin/zsh"
+  tags:
+    - user
+
+- name: Ensure root required files from templates are up to date.
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    mode: '{{ item.mode }}'
+  loop: '{{ root_required_templates }}'
+  tags:
+    - root
+    - template
+
+- name: Ensure root required service files from templates are up to date.
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    mode: '{{ item.mode }}'
+  register: root_service_templates
+  loop: '{{ root_required_service_templates }}'
+  notify: configured_services
+  tags:
+    - root
+    - sudo
+    - service-template
+
+- name: Ensure user required files from templates are up to date.
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    mode: '{{ item.mode }}'
+    owner: '{{ username }}'
+    group: '{{ usergroup }}'
+  loop: '{{ user_required_templates }}'
+  tags:
+    - user
+    - template
+
+- name: Ensure user unwanted files doesn't exist.
+  file:
+    state: absent
+    path: '/home/{{ username }}/{{ item }}'
+  loop: '{{ user_unwanted_files }}'
+  tags:
+    - user
+    - delete

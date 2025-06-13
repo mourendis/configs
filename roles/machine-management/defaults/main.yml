@@ -1,0 +1,25 @@
+---
+stop_idle_sessions_sec: 28800
+packages: []
+service_packages: []
+username: 'admin'
+usergroup: 'admin'
+user_unwanted_files: []
+root_required_directories: []
+user_required_directories:
+  - '/home/{{ username }}'
+
+root_required_templates: []
+root_required_service_templates: []
+user_required_templates: []
+
+tabstop_num: 4
+shiftwidth_num: 4
+softtabstop_num: 4
+
+pacman_cache_dir: '/var/cache/pacman/pkg/'
+pacman_color: true
+pacman_verbose: true
+pacman_paralleldwnld: true
+pacman_candy: false
+

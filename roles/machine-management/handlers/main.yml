@@ -1,0 +1,15 @@
+---
+- name: services
+  service:
+    name: '{{ item.item.service }}'
+    enabled: '{{ item.item.enabled }}'
+    state: '{{ item.item.state }}'
+  when: item.changed
+  loop: '{{ services_state.results }}'
+
+- name: configured_services
+  service:
+    name: '{{ item.item.service }}'
+    state: reloaded
+  when: item.changed
+  loop: '{{ root_service_templates.results }}'

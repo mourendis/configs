@@ -1,0 +1,10 @@
+---
+- name: Machine configuration playbook.
+  hosts: localhost
+  become: true
+  connection: local
+  pre_tasks:
+    - name: Include variables.
+      include_vars: machine-management-vars.yml
+  roles:
+    - role: machine-management

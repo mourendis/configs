@@ -1,0 +1,11 @@
+#  More info about this file:
+#  Origin: /etc/systemd/logind.conf
+#  Documentation: https://www.freedesktop.org/software/systemd/man/latest/logind.conf.html
+
+[Login]
+#HandlePowerKey=poweroff
+#HandlePowerKeyLongPress=ignore
+HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
+StopIdleSessionSec={{ stop_idle_sessions_sec }}
