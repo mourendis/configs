@@ -1,0 +1,14 @@
+---
+exports:
+  - "XDG_SESSION_TYPE=wayland"
+
+zshrc_aliases:
+  - "vim='nvim'"
+  - "df='df -h | grep -v tmpfs'"
+
+blocks:
+  - |
+    if [ -z "$TMUX" ]; then
+        exec tmux -f ~/.config/tmux/tmux.conf
+    fi
+

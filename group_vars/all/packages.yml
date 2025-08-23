@@ -1,0 +1,27 @@
+---
+default_packages:
+  - vim
+  - zsh
+  - git
+  - jq
+  - man-db
+  - screen
+  - net-tools
+  - inetutils
+  - tree
+  - go
+
+default_service_packages:
+  - package: openssh
+    service: sshd
+    enabled: true
+    state: reloaded
+  - package: zerotier-one
+    service: zerotier-one
+    enabled: true
+    state: reloaded
+  - package: iwd
+    service: iwd
+    enabled: true
+    state: reloaded
+

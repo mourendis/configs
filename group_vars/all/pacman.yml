@@ -1,0 +1,4 @@
+---
+pacman_cache_dir: '/tmp/pacman/cache/'
+pacman_candy: true
+

@@ -1,0 +1,29 @@
+---
+default_user_unwanted_files:
+  - .bashrc
+  - .bash_history
+  - .bash_logout
+  - .bash_profile
+
+default_root_required_directories:
+  - '/etc/systemd/logind.conf.d'
+
+default_user_required_directories:
+  - '/home/{{ username }}'
+
+default_root_required_templates:
+  - src: 'pacman.conf.j2'
+    dest: '/etc/pacman.conf'
+    mode: '0644'
+
+default_root_required_service_templates:
+  - src: 'logind.conf.j2'
+    dest: '/etc/systemd/logind.conf.d/main.conf'
+    mode: '0644'
+    service: 'systemd-logind'
+
+default_user_required_templates:
+  - src: 'zshrc.j2'
+    dest: '/home/{{ username }}/.zshrc'
+    mode: '0644'
+

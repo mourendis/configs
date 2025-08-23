@@ -1,0 +1,23 @@
+---
+additional_user_unwanted_files: []
+user_unwanted_files: "{{ default_user_unwanted_files + additional_user_unwanted_files }}"
+
+additional_root_required_directories: []
+root_required_directories: "{{ default_root_required_directories + additional_root_required_directories }}"
+
+additional_user_required_directories: []
+user_required_directories: "{{ default_user_required_directories + additional_user_required_directories }}"
+
+additional_root_required_templates: []
+root_required_templates: "{{ default_root_required_templates + additional_root_required_templates }}"
+
+additional_root_required_service_templates: []
+root_required_service_templates: "{{ default_root_required_service_templates + additional_root_required_service_templates }}"
+
+additional_user_required_templates:
+  - src: 'vimrc.j2'
+    dest: '/home/{{ username }}/.vimrc'
+    mode: '0644'
+
+user_required_templates: "{{ default_user_required_templates + additional_user_required_templates }}"
+

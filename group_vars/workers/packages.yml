@@ -1,0 +1,7 @@
+---
+additional_packages: []
+packages: "{{ default_packages + additional_packages }}"
+
+additional_service_packages: []
+service_packages: "{{default_service_packages + additional_service_packages }}"
+
