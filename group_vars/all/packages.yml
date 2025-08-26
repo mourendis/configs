@@ -10,6 +10,10 @@ default_packages:
   - inetutils
   - tree
   - go
+  - docker
+  - kubeadm
+  - kubelet
+  - kubectl
 
 default_service_packages:
   - package: openssh

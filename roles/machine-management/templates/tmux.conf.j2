@@ -1,0 +1,11 @@
+{% for i in tmux_window_binds %}
+bind-key -n {{ i.key }} {{ i.action }}
+{% endfor %}
+
+{% for i in tmux_pane_binds %}
+bind-key -n {{ i.key }} select-pane {{ i.motion }}
+{% endfor %}
+
+{% for i in tmux_sets %}
+set {{ i }}
+{% endfor %}

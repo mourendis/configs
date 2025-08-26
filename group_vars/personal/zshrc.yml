@@ -5,6 +5,7 @@ exports:
 zshrc_aliases:
   - "vim='nvim'"
   - "df='df -h | grep -v tmpfs'"
+  - "wine64='WINEPREFIX=/home/{{ username }}/.config/wine/def64/ wine'"
 
 blocks:
   - |

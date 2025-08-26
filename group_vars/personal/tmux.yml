@@ -1,0 +1,26 @@
+---
+tmux_window_binds:
+  - key: 'C-t'
+    action: 'new-window'
+  - key: 'M-d'
+    action: 'split-window -h'
+  - key: 'M-D'
+    action: 'split-window -v'
+  - key: 'C-H'
+    action: 'select-window -t -'
+  - key: 'C-L'
+    action: 'select-window -t +'
+
+tmux_pane_binds:
+  - key: 'C-h'
+    motion: '-L'
+  - key: 'C-j'
+    motion: '-D'
+  - key: 'C-k'
+    motion: '-U'
+  - key: 'C-l'
+    motion: '-R'
+
+tmux_sets:
+  - '-g mouse on'
+

@@ -4,6 +4,7 @@ default_user_unwanted_files:
   - .bash_history
   - .bash_logout
   - .bash_profile
+  - .cache
 
 default_root_required_directories:
   - '/etc/systemd/logind.conf.d'

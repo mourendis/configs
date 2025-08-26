@@ -20,6 +20,11 @@
     - user
     - folder
 
+- name: Update & Upgrade system with pacman
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
 - name: Ensure packages are installed and up to date.
   package:
     name: '{{ item }}'
@@ -29,7 +34,7 @@
     - sudo
     - package
 
-- name: Ensure service pacages are installed and up to date.
+- name: Ensure service packages are installed and up to date.
   package:
     name: '{{ item.package }}'
     state: latest

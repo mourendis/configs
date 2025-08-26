@@ -11,14 +11,17 @@ PROMPT='%F{green}%1~%f ${vcs_info_msg_0_}%F{blue}$%f '
 {% for i in exports %}
 export {{ i }}
 {% endfor %}
+
 # ALIASES
 alias re-init='source ~/.zshrc'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
 # ADDITIONAL ALIASES
 {% for i in zshrc_aliases %}
 alias {{ i }}
 {% endfor %}
+
 # VARS
 {% for i in blocks %}
 {{ i }}

@@ -1,0 +1,9 @@
+---
+alacritty_window:
+  - option: 'decorations'
+    value: '"None"'
+  - option: 'opacity'
+    value: 1
+  - option: 'startup_mode'
+    value: '"Maximized"'
+
