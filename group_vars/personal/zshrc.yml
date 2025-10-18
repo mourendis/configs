@@ -1,6 +1,5 @@
 ---
-exports:
-  - "XDG_SESSION_TYPE=wayland"
+exports: {}
 
 zshrc_aliases:
   - "vim='nvim'"

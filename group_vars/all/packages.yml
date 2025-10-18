@@ -14,6 +14,7 @@ default_packages:
   - kubeadm
   - kubelet
   - kubectl
+  - cni-plugins
 
 default_service_packages:
   - package: openssh

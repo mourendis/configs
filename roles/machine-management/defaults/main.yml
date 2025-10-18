@@ -23,3 +23,5 @@ pacman_verbose: true
 pacman_paralleldwnld: true
 pacman_candy: false
 
+waybar_config: {}
+waybar_style: {}

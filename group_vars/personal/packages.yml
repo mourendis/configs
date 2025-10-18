@@ -1,8 +1,11 @@
 ---
 additional_packages:
+  - hyprland
   - neovim
   - tmux
   - alacritty
+  - cilium-cli
+  - waybar
 
 packages: "{{ default_packages + additional_packages }}"
 

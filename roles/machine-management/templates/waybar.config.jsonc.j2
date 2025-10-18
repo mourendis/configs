@@ -1,0 +1,17 @@
+// -*- mode: jsonc -*-
+{
+    "height": 20,
+    "spacing": 2,
+    "output": "DP-2",
+    "gtk-layer-shell": false,
+    "modules-left": [],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "clock"],
+    "clock": {
+        "format": "{:%d/%m %H:%M}",
+    },
+    "pulseaudio": {
+        "format": "{volume}%",
+        "scroll-step": 5
+    }
+}
