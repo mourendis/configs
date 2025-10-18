@@ -37,9 +37,8 @@
 - name: Ensure that groups are assigned to users.
   user:
     name: '{{ item.name }}'
-    append: '{{ item.append }}'
+    append: true
     groups: '{{ item.groups }}'
-  when: '{{ item.append }}'
   loop: '{{ required_user_groups }}'
 
 - name: Include package manager update
