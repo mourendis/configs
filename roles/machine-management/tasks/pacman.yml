@@ -1,0 +1,5 @@
+- name: Ensure pacman is up to date
+  pacman:
+    update_cache: yes
+    upgrade: yes
+

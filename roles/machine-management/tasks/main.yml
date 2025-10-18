@@ -2,28 +2,48 @@
 - name: Ensure root folders exist.
   file:
     state: directory
-    path: '{{ item }}'
+    path: '{{ item.path }}'
+    mode: '{{ item.mode }}'
   loop: '{{ root_required_directories }}'
   tags:
     - root
     - sudo
     - folder
 
-- name: Ensure user folders exist.
+- name: Ensure required users exist.
+  user:
+    append: '{{ item.append }}'
+    create_home: '{{ item.create_home }}'
+    groups: '{{ item.groups }}'
+    name: '{{ item.name }}'
+  loop: '{{ required_users }}'
+
+- name: Ensure user required directories exist.
   file:
     state: directory
-    path: '{{ item }}'
-    owner: '{{ username }}'
-    group: '{{ usergroup }}'
+    path: '{{ item.path }}'
+    owner: '{{ item.name }}'
+    group: '{{ item.group }}'
   loop: '{{ user_required_directories }}'
   tags:
     - user
     - folder
 
-- name: Update & Upgrade system with pacman
-  pacman:
-    update_cache: yes
-    upgrade: yes
+- name: Ensure required groups exist.
+  group:
+    name: '{{ item.name }}'
+  loop: '{{ required_groups }}'
+
+- name: Ensure that groups are assigned to users.
+  user:
+    name: '{{ item.name }}'
+    append: '{{ item.append }}'
+    groups: '{{ item.groups }}'
+  when: '{{ item.append }}'
+  loop: '{{ required_user_groups }}'
+
+- name: Include package manager update
+  include_tasks: "{{ ansible_pkg_mgr }}.yml"
 
 - name: Ensure packages are installed and up to date.
   package:
@@ -82,6 +102,19 @@
     owner: '{{ username }}'
     group: '{{ usergroup }}'
   loop: '{{ user_required_templates }}'
+  tags:
+    - user
+    - template
+
+- name: Ensure user required process files from templates are up to date.
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    mode: '{{ item.mode }}'
+    owner: '{{ username }}'
+    group: '{{ usergroup }}'
+  loop: '{{ user_required_process_templates }}'
+  notify: user_configured_processes
   tags:
     - user
     - template

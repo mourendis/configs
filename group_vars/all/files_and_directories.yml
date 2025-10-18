@@ -6,11 +6,10 @@ default_user_unwanted_files:
   - .bash_profile
   - .cache
 
+default_user_required_directories: []
 default_root_required_directories:
-  - '/etc/systemd/logind.conf.d'
-
-default_user_required_directories:
-  - '/home/{{ username }}'
+  - path: '/etc/systemd/logind.conf.d'
+    mode: '0644'
 
 default_root_required_templates:
   - src: 'pacman.conf.j2'

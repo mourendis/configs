@@ -13,3 +13,10 @@
     state: reloaded
   when: item.changed
   loop: '{{ root_service_templates.results }}'
+
+- name: user_configured_processes
+  shell: '{{ item.item.command }}'
+  when: item.changed
+  become_user: '{{ item.item.user }}'
+  loop: '{{ root_processes_templates.result }}'
+

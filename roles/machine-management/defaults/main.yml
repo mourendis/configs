@@ -2,8 +2,7 @@
 stop_idle_sessions_sec: 28800
 packages: []
 service_packages: []
-username: 'admin'
-usergroup: 'admin'
+required_users: []
 user_unwanted_files: []
 root_required_directories: []
 user_required_directories:
@@ -12,6 +11,7 @@ user_required_directories:
 root_required_templates: []
 root_required_service_templates: []
 user_required_templates: []
+user_required_process_templates: []
 
 tabstop_num: 4
 shiftwidth_num: 4

@@ -1,0 +1,5 @@
+---
+required_users: []
+additional_required_groups: []
+required_groups: '{{ default_required_groups + additional_required_groups }}'
+
