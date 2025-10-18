@@ -12,10 +12,8 @@
 
 - name: Ensure required users exist.
   user:
-    append: '{{ item.append }}'
-    create_home: '{{ item.create_home }}'
-    groups: '{{ item.groups }}'
     name: '{{ item.name }}'
+    create_home: '{{ item.create_home }}'
   loop: '{{ required_users }}'
 
 - name: Ensure user required directories exist.
