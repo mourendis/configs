@@ -5,8 +5,7 @@ service_packages: []
 required_users: []
 user_unwanted_files: []
 root_required_directories: []
-user_required_directories:
-  - '/home/{{ username }}'
+user_required_directories: []
 
 root_required_templates: []
 root_required_service_templates: []

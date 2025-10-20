@@ -6,8 +6,12 @@ additional_root_required_directories: []
 root_required_directories: []
 
 additional_user_required_directories:
-  - '/home/{{ username }}/.config/tmux'
-  - '/home/{{ username }}/.config/alacritty'
+  - path: '/home/{{ username }}/.config/tmux'
+    owner: '{{ username }}'
+    group: '{{ usergroup }}'
+  - path: '/home/{{ username }}/.config/alacritty'
+    owner: '{{ username }}'
+    group: '{{ usergroup }}'
 user_required_directories: "{{ default_user_required_directories + additional_user_required_directories }}"
 
 additional_root_required_templates: []

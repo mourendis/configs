@@ -20,7 +20,7 @@
   file:
     state: directory
     path: '{{ item.path }}'
-    owner: '{{ item.name }}'
+    owner: '{{ item.owner }}'
     group: '{{ item.group }}'
   loop: '{{ user_required_directories }}'
   tags:
