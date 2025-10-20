@@ -3,6 +3,7 @@ stop_idle_sessions_sec: 28800
 packages: []
 service_packages: []
 required_users: []
+required_groups: []
 user_unwanted_files: []
 root_required_directories: []
 user_required_directories: []
