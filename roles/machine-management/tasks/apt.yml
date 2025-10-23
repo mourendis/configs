@@ -1,5 +1,5 @@
 - name: Ensure apt is up to date
   apt:
     update_cache: yes
-    upgrade: yes
+    upgrade: '{{ upgrade_packages }}'
 

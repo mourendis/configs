@@ -1,6 +1,7 @@
 ---
 stop_idle_sessions_sec: 28800
 packages: []
+upgrade_packages: false
 service_packages: []
 required_users: []
 required_groups: []

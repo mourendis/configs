@@ -18,5 +18,5 @@
   shell: '{{ item.item.command }}'
   when: item.changed
   become_user: '{{ item.item.user }}'
-  loop: '{{ user_process_templates.result }}'
+  loop: '{{ user_process_templates.results }}'
 
